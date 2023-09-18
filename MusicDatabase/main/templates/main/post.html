@@ -1,0 +1,50 @@
+{% extends 'main/layout.html' %}
+{% block title %}Пополнить{% endblock %}
+{% block content %}
+    <form id="post-form">
+      <fieldset>
+        <legend>Добавить трек</legend>
+        <div class="mb-3">
+            <label class="form-label">Название трека</label>
+            {{ form.title }}
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Исполнитель</label>
+            {{ form.artist }}
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Альбом</label>
+            {{ form.album }}
+        </div>
+        <fieldset class="shortset">
+            <div class="mb-4">
+                <label class="form-label">Номер трека</label>
+                {{ form.track_number }}
+            </div>
+            <div class="mb-4">
+                <label class="form-label">BPM</label>
+                {{ form.tempo }}
+            </div>
+            <div class="mb-4">
+                <label class="form-label">Длительность (сек)</label>
+                {{ form.duration }}
+            </div>
+            <div class="mb-4">
+                <label class="form-label">ISRC</label>
+                {{ form.isrc_code }}
+            </div>
+        </fieldset>
+        <div class="mb-3">
+          <div class="form-check">
+            {{ form.explict }}
+            <label class="form-check-label">
+              Explict
+            </label>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-light">Заполнить</button>
+      </fieldset>
+      {% csrf_token %}
+    </form>
+    <div class="alert alert-secondary" role="alert" style="display: none;" id = "success-bar"></div>
+{% endblock %}
